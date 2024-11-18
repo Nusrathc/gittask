@@ -50,7 +50,7 @@ jobs:
           scp -i ~/.ssh/id_rsa target/*.war ubuntu@$IP:/home/ubuntu/
       - name: Copy WAR file to Tomcat webapps
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
           IP: ${{ secrets.SSH_IP }}
         run: |
           ssh -i ~/.ssh/id_rsa ubuntu@$IP 'sudo cp /home/ubuntu/*.war /opt/tomcat/webapps/'
